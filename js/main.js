@@ -234,34 +234,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbar');
   let lastScroll = 0;
 
-  const updateNavbar = () => {
-    const scrollY = window.scrollY || window.pageYOffset;
-    if (scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-    lastScroll = scrollY;
-  };
-
-  if (lenis) {
-    lenis.on('scroll', updateNavbar);
-  } else {
-    window.addEventListener('scroll', updateNavbar);
-  }
-  updateNavbar();
-
-  /* ==========================================
-     ANNOUNCEMENT BAR
-     ========================================== */
-  const announcementBar = document.getElementById('announcementBar');
-  if (announcementBar) {
-    const toggleAnnounce = () => {
-      const sy = window.scrollY || window.pageYOffset;
-      announcementBar.classList.toggle('hidden', sy > 50);
+  if (navbar) {
+    const updateNavbar = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      if (scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      lastScroll = scrollY;
     };
-    if (lenis) lenis.on('scroll', toggleAnnounce);
-    else window.addEventListener('scroll', toggleAnnounce);
+
+    if (lenis) {
+      lenis.on('scroll', updateNavbar);
+    } else {
+      window.addEventListener('scroll', updateNavbar);
+    }
+    updateNavbar();
   }
 
   /* ==========================================
@@ -551,15 +540,6 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================== */
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 
-    // Hero text stagger
-    gsap.from('.navbar', {
-      y: -20,
-      opacity: 0,
-      duration: 1.2,
-      ease: 'power3.out',
-      delay: 0.5
-    });
-
     // Parallax on brand story image
     gsap.utils.toArray('.brand-story-image img').forEach(img => {
       gsap.fromTo(img, {
@@ -597,22 +577,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Counter animation for stats
-    gsap.utils.toArray('.stat-number').forEach(counter => {
-      const target = parseInt(counter.dataset.count) || 0;
+    gsap.utils.toArray('.ab-phil-stat-num, .ph-metric-number').forEach(counter => {
+      const target = parseFloat(counter.dataset.count) || 0;
+      const isDecimal = (target % 1) !== 0;
       ScrollTrigger.create({
         trigger: counter,
         start: 'top 85%',
         onEnter: () => {
           gsap.fromTo(counter, {
-            textContent: 0
+            textContent: isDecimal ? '0.0' : 0
           }, {
             textContent: target,
             duration: 2,
             ease: 'power2.out',
-            snap: { textContent: 1 },
+            snap: { textContent: isDecimal ? 0.1 : 1 },
             onUpdate: function () {
-              counter.textContent = Math.round(counter.textContent);
-              if (target >= 50) counter.textContent += '+';
+              counter.textContent = isDecimal ? target.toFixed(1) : Math.round(this.targets()[0].textContent);
+              if (!isDecimal && target >= 50) counter.textContent += '+';
             }
           });
         },
@@ -900,12 +881,85 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================
      QUICK VIEW MODAL
      ========================================== */
-  document.querySelectorAll('[data-quickview]').forEach(btn => {
+  const productData = [
+    { name: 'Premium Filter System', price: 149, img: 'assets/images/prd-1.png', cat: 'Shower Filters', rating: 4.9, desc: 'Advanced multi-stage filtration removes chlorine, heavy metals, and impurities for healthier skin and hair.' },
+    { name: 'Replacement Cartridge', price: 39, img: 'assets/images/prd-2.png', cat: 'Shower Filters', rating: 4.7, desc: 'High-capacity replacement cartridge compatible with all filter systems. Delivers 6 months of filtered water.' },
+    { name: 'Vitamin C Filter', price: 89, img: 'assets/images/prd-3.png', cat: 'Shower Filters', rating: 4.8, desc: 'Infused with Vitamin C to neutralize chlorine and chloramines while promoting healthier, more radiant skin.' },
+    { name: 'Hard Water Filter', price: 129, img: 'assets/images/shower1.png', cat: 'Shower Filters', rating: 4.6, desc: 'Designed for hard water areas. Reduces scale buildup and leaves skin feeling softer after every shower.' },
+    { name: 'Filter Accessory Kit', price: 59, img: 'assets/images/cat-2.png', cat: 'Shower Filters', rating: 4.5, desc: 'Everything you need to maintain your filter system. Includes replacement washers, adapters, and a cleaning brush.' },
+    { name: 'The Rainfall Elite', price: 289, img: 'assets/images/cat-3.png', cat: 'Showerheads', rating: 4.9, desc: 'Luxury 12-inch rainfall showerhead with self-cleaning silicone nozzles. Provides an immersive spa-like experience.' },
+    { name: 'Artisan Hand Shower', price: 189, img: 'assets/images/prd-4.png', cat: 'Showerheads', rating: 4.8, desc: 'Ergonomic hand shower with premium braided hose and three spray modes. The flexible grip design makes rinsing effortless.' },
+    { name: 'Mist & Rain Duo', price: 349, img: 'assets/images/washbasin.jpg', cat: 'Showerheads', rating: 4.9, desc: 'Innovative dual-mode showerhead combining gentle mist with invigorating rain. Features thermostatic control.' },
+    { name: 'Cascade Waterfall', price: 269, img: 'assets/images/Gold_hand_shower_overlooking_pool_202607190034.jpeg', cat: 'Showerheads', rating: 4.7, desc: 'Wide 14-inch waterfall showerhead that delivers a gentle, even flow. The minimalist design complements any modern bathroom.' },
+    { name: 'WallMount Pro', price: 219, img: 'assets/images/Washbasin_premium_level_image_2K_202607190117.jpeg', cat: 'Showerheads', rating: 4.6, desc: 'Adjustable wall-mounted showerhead with 360° rotation and six spray patterns. Precision-engineered brass construction.' },
+    { name: 'Silk Protein Shampoo', price: 48, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&h=650&fit=crop', cat: 'Haircare', rating: 4.9, desc: 'Nourishing shampoo infused with silk proteins and argan oil. Gently cleanses while restoring shine and strength.' },
+    { name: 'Silk Protein Conditioner', price: 44, img: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&h=650&fit=crop', cat: 'Haircare', rating: 4.8, desc: 'Rich conditioner with silk amino acids and shea butter. Detangles, hydrates, and leaves hair silky smooth.' },
+    { name: 'Argan Hair Elixir', price: 58, img: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=500&h=650&fit=crop', cat: 'Haircare', rating: 4.7, desc: 'Lightweight organic argan oil treatment that tames frizz, adds shine, and protects against heat damage.' },
+    { name: 'Mineral Shower Gel', price: 42, img: 'https://images.unsplash.com/photo-1570194065650-d99fb4b8ccb0?w=500&h=650&fit=crop', cat: 'Skincare', rating: 4.8, desc: 'Luxurious shower gel enriched with Dead Sea minerals and aloe vera. Gently cleanses while replenishing essential nutrients.' },
+    { name: 'HydraGlow Moisturizer', price: 72, img: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=500&h=650&fit=crop', cat: 'Skincare', rating: 4.9, desc: 'Lightweight fast-absorbing moisturizer with hyaluronic acid and vitamin B5. Provides 24-hour hydration.' },
+  ];
+
+  const qvModal = document.getElementById('quickViewModal');
+  const qvClose = document.getElementById('quickViewClose');
+
+  function openQuickView(product) {
+    if (!qvModal) return;
+    document.getElementById('qvImg').src = product.img;
+    document.getElementById('qvImg').alt = product.name;
+    document.getElementById('qvCat').textContent = product.cat;
+    document.getElementById('qvName').textContent = product.name;
+    document.getElementById('qvPrice').textContent = `$${product.price}`;
+    document.getElementById('qvDesc').textContent = product.desc;
+    document.getElementById('qvRating').innerHTML = `<i class="fas fa-star"></i> ${product.rating} <span>(${Math.floor(product.rating)}+ reviews)</span>`;
+    qvModal.querySelector('.qty-value').textContent = '1';
+    qvModal._product = product;
+    qvModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (lenis) lenis.stop();
+  }
+
+  function closeQuickView() {
+    if (!qvModal) return;
+    qvModal.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lenis) lenis.start();
+  }
+
+  document.querySelectorAll('.sp-quickview').forEach(btn => {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      const productName = this.closest('.product-card')?.querySelector('h3')?.textContent || 'Product';
-      showToast(`Quick view: ${productName}`);
+      const card = this.closest('.sp-card');
+      if (!card) return;
+      const name = card.querySelector('h3')?.textContent?.trim();
+      const product = productData.find(p => p.name === name);
+      if (product) { openQuickView(product); return; }
+      openQuickView({
+        name: name || 'Product',
+        price: parseFloat((card.querySelector('.sp-price')?.textContent || '0').replace(/[^0-9.]/g, '')),
+        img: card.querySelector('.sp-card-image img')?.getAttribute('src') || '',
+        cat: card.querySelector('.sp-cat')?.textContent || '',
+        rating: 4.5,
+        desc: 'Premium quality product from our curated collection.',
+      });
     });
+  });
+
+  if (qvClose) qvClose.addEventListener('click', closeQuickView);
+  if (qvModal) qvModal.addEventListener('click', function (e) { if (e.target === this) closeQuickView(); });
+
+  document.getElementById('qvAddToCart')?.addEventListener('click', function () {
+    const product = qvModal?._product;
+    if (!product) return;
+    const qty = parseInt(qvModal.querySelector('.qty-value')?.textContent || '1');
+    for (let i = 0; i < qty; i++) addToCart(product.name, product.price, product.img);
+    closeQuickView();
+    // Open cart drawer after adding
+    const toggle = document.getElementById('cartToggle');
+    if (toggle) toggle.click();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && qvModal?.classList.contains('open')) closeQuickView();
   });
 
   /* ==========================================
@@ -976,20 +1030,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const y = ((e.clientY - rect.top) / rect.height) * 100;
       img.style.transformOrigin = `${x}% ${y}%`;
     });
-  });
-
-  /* ==========================================
-     KEYBOARD NAVIGATION
-     ========================================== */
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      // Close drawer
-      if (cartDrawer?.classList.contains('open')) {
-        drawerOverlay?.click();
-      }
-      // Close mobile menu
-      document.body.classList.remove('mobile-menu-open');
-    }
   });
 
   /* ==========================================

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Bold International</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-logo">Nexus</div>
+  </div>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-track">
+      <span>Free shipping on orders over <strong>$200</strong></span>
+      <span>Subscribe for <strong>10% off</strong> your first order</span>
+      <span>Complimentary samples with every purchase</span>
+      <span>Free shipping on orders over <strong>$200</strong></span>
+      <span>Subscribe for <strong>10% off</strong> your first order</span>
+      <span>Complimentary samples with every purchase</span>
+    </div>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <div class="container-premium">
+      <div class="navbar-inner">
+        <div class="nav-left">
+          <a href="index.html" class="navbar-brand">Bold<span>.</span></a>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="shop.html">Shop</a>
+            <div class="mega-menu">
+              <div class="mega-menu-grid">
+                <div class="mega-menu-col">
+                  <h4>Shower Products</h4>
+                  <a href="shop.html">Shower Filters <span class="count">(5)</span></a>
+                  <div class="mega-menu-sub">
+                    <a href="shop.html">Premium Filter Systems</a>
+                    <a href="shop.html">Replacement Cartridges</a>
+                    <a href="shop.html">Vitamin C Filters</a>
+                    <a href="shop.html">Hard Water Filters</a>
+                    <a href="shop.html">Filter Accessories</a>
+                  </div>
+                  <a href="shop.html" style="margin-top:12px;">Showerheads <span class="count">(5)</span></a>
+                  <div class="mega-menu-sub">
+                    <a href="shop.html">Rain Showerheads</a>
+                    <a href="shop.html">Hand Showers</a>
+                    <a href="shop.html">Dual Shower Systems</a>
+                    <a href="shop.html">Waterfall Showerheads</a>
+                    <a href="shop.html">Wall-Mounted Showerheads</a>
+                  </div>
+                </div>
+                <div class="mega-menu-col">
+                  <h4>Complementary Products</h4>
+                  <h4 style="margin-top:16px;font-size:0.6rem;">Skincare &amp; Haircare</h4>
+                  <a href="shop.html">Shampoo</a>
+                  <a href="shop.html">Conditioner</a>
+                  <a href="shop.html">Shower Gel</a>
+                  <a href="shop.html">Hair Oil</a>
+                  <a href="shop.html">Moisturizer</a>
+                </div>
+              </div>
+              <div class="mega-menu-featured">
+                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=120&h=120&fit=crop" alt="Featured" loading="lazy">
+                <div>
+                  <strong>The Rainfall Elite</strong>
+                  Shop our best-selling showerhead
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="blog.html">Journal</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-right"><div class="nav-actions">
+          <button aria-label="Search" id="searchToggle"><i class="fas fa-search"></i></button>
+          <a href="wishlist.html" aria-label="Wishlist"><i class="far fa-heart"></i></a>
+          <button aria-label="Cart" id="cartToggle">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge">0</span>
+          </button>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      
+        </div>
+      </div>
+    </div>
+</nav>
+
+  <div class="search-overlay" id="searchOverlay">
+    <button class="search-overlay-close" id="searchClose"><i class="fas fa-times"></i></button>
+    <div class="search-overlay-inner">
+      <div class="search-overlay-input-wrap">
+        <input type="text" class="search-overlay-input" placeholder="What are you looking for?" id="searchInput">
+      </div>
+      <div class="search-suggestions">
+        <span>Trending</span>
+        <a href="shop.html">Rain Showerheads</a>
+        <a href="shop.html">Shower Filters</a>
+        <a href="shop.html">Premium Skincare</a>
+        <a href="shop.html">Gift Sets</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-overlay" id="mobileOverlay">
+    <div class="mobile-nav-links">
+      <a href="index.html"><small>01</small>Home</a>
+      <a href="shop.html"><small>02</small>Shop</a>
+      <a href="about.html" class="active"><small>03</small>About</a>
+      <a href="blog.html"><small>04</small>Journal</a>
+      <a href="contact.html"><small>05</small>Contact</a>
+    </div>
+    <div class="mobile-nav-bottom">
+      <a href="login.html">Sign In</a>
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+    </div>
+  </div>
+
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <div class="floating-particles" id="floatingParticles"></div>
+  <div class="drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3>Shopping Bag <span id="cartCount">0</span></h3>
+      <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="drawer-body" id="drawerBody">
+      <div class="drawer-empty" id="drawerEmpty">
+        <i class="fas fa-shopping-bag"></i>
+        <p>Your bag is empty</p>
+        <p class="empty-sub">Add some products to get started</p>
+      </div>
+      <div class="drawer-items" id="drawerItems" style="display:none;"></div>
+    </div>
+    <div class="drawer-footer" id="drawerFooter" style="display:none;">
+      <div class="drawer-subtotal">
+        <span>Subtotal</span>
+        <span class="subtotal-amount" id="drawerTotal">$0</span>
+      </div>
+      <button class="btn-premium btn-primary drawer-checkout">Checkout <i class="fas fa-arrow-right"></i></button>
+      <p class="drawer-note">Free shipping on orders over $200</p>
+    </div>
+  </div>
+
+  <section class="ab-hero" id="abHero">
+    <div class="ab-hero-bg">
+      <img src="assets/images/Gold_hand_shower_overlooking_pool_202607190034.jpeg" alt="">
+    </div>
+    <div class="ab-hero-overlay"></div>
+    <div class="ab-particles">
+      <span style="left:10%;top:20%;animation-delay:0s"></span>
+      <span style="left:30%;top:50%;animation-delay:1.5s"></span>
+      <span style="left:55%;top:15%;animation-delay:3s"></span>
+      <span style="left:75%;top:60%;animation-delay:0.8s"></span>
+      <span style="left:90%;top:30%;animation-delay:2.2s"></span>
+    </div>
+    <div class="ab-hero-content">
+      <span class="ab-label">OUR STORY</span>
+      <h1 class="ab-heading">Redefining the Future<br>of Water Wellness</h1>
+      <p class="ab-desc">Every drop matters. We combine engineering, sustainability, and timeless design to create healthier water experiences for modern homes around the world.</p>
+      <div class="ab-cta">
+        <a href="#journey" class="ab-btn ab-btn-primary">Discover Our Journey <i class="fas fa-arrow-right"></i></a>
+        <a href="#" class="ab-btn ab-btn-outline"><i class="fas fa-play"></i> Watch Brand Film</a>
+      </div>
+      <div class="ab-scroll">
+        <div class="ab-scroll-drop"><i class="fas fa-tint"></i></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="ab-phil" id="abPhil">
+    <div class="ab-phil-container">
+      <div class="ab-phil-image">
+        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=700&h=900&fit=crop" alt="Luxury basin with flowing water">
+        <div class="ab-phil-image-overlay"></div>
+        <div class="ab-phil-image-ornament"></div>
+      </div>
+      <div class="ab-phil-content">
+        <span class="ab-label">Philosophy</span>
+        <h2 class="ab-phil-heading">Design Meets<br>Wellness</h2>
+        <div class="ab-phil-divider"></div>
+        <p class="ab-phil-text">Water is the most elemental of luxuries. For over a decade, we have been obsessed with perfecting how water interacts with skin, hair, and the spaces we inhabit. Every curve, every material, every droplet is considered — because true wellness begins in the most intimate moments of your day.</p>
+        <p class="ab-phil-text">We believe that better water leads to better living. By reducing chlorine, heavy metals, and impurities while preserving essential minerals, our filtration systems transform every shower into a spa-grade ritual. This is not just hydration — it is rejuvenation.</p>
+        <div class="ab-phil-stats">
+          <div class="ab-phil-stat">
+            <span class="ab-phil-stat-num" data-count="99.9">0</span>
+            <span class="ab-phil-stat-label">Chlorine Reduction</span>
+          </div>
+          <div class="ab-phil-stat">
+            <span class="ab-phil-stat-num" data-count="100">0</span>
+            <span class="ab-phil-stat-label">% Sustainable Materials</span>
+          </div>
+          <div class="ab-phil-stat">
+            <span class="ab-phil-stat-num" data-count="50">0</span>
+            <span class="ab-phil-stat-label">Countries Reached</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ab-timeline" id="abTimeline">
+    <div class="ab-timeline-container">
+      <div class="ab-timeline-header">
+        <span class="ab-label">Our Journey</span>
+        <h2 class="ab-timeline-heading">Milestones of<br>Water Innovation</h2>
+      </div>
+      <!-- <div class="ab-timeline-track">
+        <div class="ab-timeline-progress" id="abTimelineProgress"></div>
+        <div class="ab-timeline-item" data-year="2015">
+          <div class="ab-timeline-dot"><span></span></div>
+          <div class="ab-timeline-info">
+            <strong>2015</strong>
+            <p>Brand Founded</p>
+            <span>Born from a vision to transform everyday water experiences.</span>
+          </div>
+        </div>
+        <div class="ab-timeline-item" data-year="2017">
+          <div class="ab-timeline-dot"><span></span></div>
+          <div class="ab-timeline-info">
+            <strong>2017</strong>
+            <p>First Shower Filter</p>
+            <span>Launched our patented filtration system, removing 99% of chlorine.</span>
+          </div>
+        </div>
+        <div class="ab-timeline-item" data-year="2019">
+          <div class="ab-timeline-dot"><span></span></div>
+          <div class="ab-timeline-info">
+            <strong>2019</strong>
+            <p>International Expansion</p>
+            <span>Opened distribution across Europe, Asia, and North America.</span>
+          </div>
+        </div>
+        <div class="ab-timeline-item" data-year="2022">
+          <div class="ab-timeline-dot"><span></span></div>
+          <div class="ab-timeline-info">
+            <strong>2022</strong>
+            <p>Award Winning Innovation</p>
+            <span>Received Red Dot &amp; iF Design Awards for product excellence.</span>
+          </div>
+        </div>
+        <div class="ab-timeline-item" data-year="2026">
+          <div class="ab-timeline-dot"><span></span></div>
+          <div class="ab-timeline-info">
+            <strong>2026</strong>
+            <p>Global Wellness Brand</p>
+            <span>Trusted by 500K+ customers in 50+ countries worldwide.</span>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </section>
+
+  <section class="ab-values" id="abValues">
+    <div class="ab-values-container">
+      <div class="ab-values-header">
+        <span class="ab-label">Our Values</span>
+        <h2 class="ab-values-heading">What We Stand For</h2>
+      </div>
+      <div class="ab-values-grid">
+        <div class="ab-value-card">
+          <div class="ab-value-icon"><i class="fas fa-gem"></i></div>
+          <h3>Design Excellence</h3>
+          <p>Every product is a sculpture — minimalist, timeless, and crafted to elevate the everyday.</p>
+        </div>
+        <div class="ab-value-card">
+          <div class="ab-value-icon"><i class="fas fa-leaf"></i></div>
+          <h3>Sustainability</h3>
+          <p>Planet-first materials, carbon-neutral operations, and packaging designed for circularity.</p>
+        </div>
+        <div class="ab-value-card">
+          <div class="ab-value-icon"><i class="fas fa-flask"></i></div>
+          <h3>Innovation</h3>
+          <p>Proprietary filtration technology that sets new benchmarks for water purity and performance.</p>
+        </div>
+        <div class="ab-value-card">
+          <div class="ab-value-icon"><i class="fas fa-heart"></i></div>
+          <h3>Customer Wellbeing</h3>
+          <p>Your health drives every decision — from material safety to dermatologist-approved formulas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ab-sustainability" id="abSustainability">
+    <div class="ab-sus-bg"></div>
+    <div class="ab-sus-overlay"></div>
+    <div class="ab-sus-content">
+      <span class="ab-label">Sustainability</span>
+      <h2 class="ab-sus-heading">We design products that protect both people and the planet.</h2>
+      <p class="ab-sus-desc">Every choice we make — from raw materials to shipping — is guided by our commitment to a healthier future.</p>
+      <div class="ab-sus-icons">
+        <div class="ab-sus-icon-item">
+          <div class="ab-sus-icon-wrap"><i class="fas fa-recycle"></i></div>
+          <strong>Plastic Reduction</strong>
+        </div>
+        <div class="ab-sus-icon-item">
+          <div class="ab-sus-icon-wrap"><i class="fas fa-box-open"></i></div>
+          <strong>Eco Packaging</strong>
+        </div>
+        <div class="ab-sus-icon-item">
+          <div class="ab-sus-icon-wrap"><i class="fas fa-water"></i></div>
+          <strong>Water Saving</strong>
+        </div>
+        <div class="ab-sus-icon-item">
+          <div class="ab-sus-icon-wrap"><i class="fas fa-undo-alt"></i></div>
+          <strong>Recyclable Materials</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ab-stats" id="abStats">
+    <div class="ab-stats-container">
+      <div class="ab-stats-grid">
+        <div class="ab-stat-card">
+          <span class="ab-stat-num" data-target="50">0</span>
+          <span class="ab-stat-plus">+</span>
+          <span class="ab-stat-label">Countries</span>
+        </div>
+        <div class="ab-stat-card">
+          <span class="ab-stat-num" data-target="500">0</span>
+          <span class="ab-stat-plus">K+</span>
+          <span class="ab-stat-label">Happy Customers</span>
+        </div>
+        <div class="ab-stat-card">
+          <span class="ab-stat-num" data-target="15">0</span>
+          <span class="ab-stat-plus">+</span>
+          <span class="ab-stat-label">Years of Excellence</span>
+        </div>
+        <div class="ab-stat-card">
+          <span class="ab-stat-num" data-target="250">0</span>
+          <span class="ab-stat-plus">+</span>
+          <span class="ab-stat-label">Retail Partners</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ab-team" id="abTeam">
+    <div class="ab-team-container">
+      <div class="ab-team-header">
+        <span class="ab-label">Team</span>
+        <h2 class="ab-team-heading">The People Behind the Water</h2>
+      </div>
+      <div class="ab-team-grid">
+        <div class="ab-team-card">
+          <div class="ab-team-image">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face" alt="Alex Chen">
+            <div class="ab-team-image-overlay"></div>
+          </div>
+          <div class="ab-team-info">
+            <strong>Alex Chen</strong>
+            <span>Founder &amp; CEO</span>
+            <p>"Water is the foundation of life — and of our brand."</p>
+          </div>
+        </div>
+        <div class="ab-team-card">
+          <div class="ab-team-image">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop&crop=face" alt="Maya Rivera">
+            <div class="ab-team-image-overlay"></div>
+          </div>
+          <div class="ab-team-info">
+            <strong>Maya Rivera</strong>
+            <span>Head of Design</span>
+            <p>"Minimalism is not about absence — it's about intention."</p>
+          </div>
+        </div>
+        <div class="ab-team-card">
+          <div class="ab-team-image">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face" alt="James Park">
+            <div class="ab-team-image-overlay"></div>
+          </div>
+          <div class="ab-team-info">
+            <strong>James Park</strong>
+            <span>Head of Sustainability</span>
+            <p>"Every material choice is a vote for the planet we want."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ab-cta-final" id="abCtaFinal">
+    <div class="ab-cta-bg">
+      <img src="assets/images/Bathroom_with_green_vanity_toilet_202607190136.jpeg" alt="">
+    </div>
+    <div class="ab-cta-overlay"></div>
+    <div class="ab-cta-content">
+      <h2 class="ab-cta-heading">Experience Water,<br>Reimagined</h2>
+      <p class="ab-cta-desc">Join over 500,000 customers who have transformed their daily shower into a wellness ritual.</p>
+      <div class="ab-cta-buttons">
+        <a href="shop.html" class="ab-btn ab-btn-primary">Explore Collection <i class="fas fa-arrow-right"></i></a>
+        <a href="contact.html" class="ab-btn ab-btn-outline ab-btn-outline-light">Contact Us <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container-premium">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Nexus</div>
+          <p class="footer-desc">Innovative bathroom solutions and premium skincare essentials.</p>
+          <div class="footer-social mt-4">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <div class="footer-links">
+            <a href="shop.html">Shower Filters</a>
+            <a href="shop.html">Rain Showerheads</a>
+            <a href="shop.html">Hand Showers</a>
+            <a href="shop.html">Accessories</a>
+            <a href="shop.html">Skincare</a>
+          </div>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <div class="footer-links">
+            <a href="contact.html">Contact Us</a>
+            <a href="#">Installation Guide</a>
+            <a href="#">Warranty</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+          </div>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="blog.html">Journal</a>
+            <a href="#">Careers</a>
+            <a href="#">Sustainability</a>
+            <a href="#">Press</a>
+          </div>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Bold International. All rights reserved.</p>
+        <div class="footer-selectors">
+          <select>
+            <option>United States (USD $)</option>
+            <option>United Kingdom (GBP £)</option>
+            <option>European Union (EUR €)</option>
+            <option>Japan (JPY ¥)</option>
+          </select>
+          <select>
+            <option>English</option>
+            <option>French</option>
+            <option>German</option>
+            <option>Japanese</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

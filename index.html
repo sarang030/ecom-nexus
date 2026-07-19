@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bold International — Luxury Bathroom Solutions & Premium Skincare</title>
+  <meta name="description" content="Innovative shower systems, rain showerheads, and luxury personal care. Pure Water. Pure Living.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-logo">Nexus</div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Announcement Bar -->
+  <!-- <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-track">
+      <span>Free shipping on orders over <strong>$200</strong></span>
+      <span>Subscribe for <strong>10% off</strong> your first order</span>
+      <span>Complimentary samples with every purchase</span>
+      <span>Free shipping on orders over <strong>$200</strong></span>
+      <span>Subscribe for <strong>10% off</strong> your first order</span>
+      <span>Complimentary samples with every purchase</span>
+    </div>
+  </div> -->
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container-premium">
+      <div class="navbar-inner">
+        <div class="nav-left">
+          <a href="index.html" class="navbar-brand">Bold<span>.</span></a>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li>
+            <a href="shop.html">Shop</a>
+            <div class="mega-menu">
+              <div class="mega-menu-grid">
+                <div class="mega-menu-col">
+                  <h4>Shower Products</h4>
+                  <a href="shop.html">Shower Filters <span class="count">(5)</span></a>
+                  <div class="mega-menu-sub">
+                    <a href="shop.html">Premium Filter Systems</a>
+                    <a href="shop.html">Replacement Cartridges</a>
+                    <a href="shop.html">Vitamin C Filters</a>
+                    <a href="shop.html">Hard Water Filters</a>
+                    <a href="shop.html">Filter Accessories</a>
+                  </div>
+                  <a href="shop.html" style="margin-top:12px;">Showerheads <span class="count">(5)</span></a>
+                  <div class="mega-menu-sub">
+                    <a href="shop.html">Rain Showerheads</a>
+                    <a href="shop.html">Hand Showers</a>
+                    <a href="shop.html">Dual Shower Systems</a>
+                    <a href="shop.html">Waterfall Showerheads</a>
+                    <a href="shop.html">Wall-Mounted Showerheads</a>
+                  </div>
+                </div>
+                <div class="mega-menu-col">
+                  <h4>Complementary Products</h4>
+                  <h4 style="margin-top:16px;font-size:0.6rem;">Skincare &amp; Haircare</h4>
+                  <a href="shop.html">Shampoo</a>
+                  <a href="shop.html">Conditioner</a>
+                  <a href="shop.html">Shower Gel</a>
+                  <a href="shop.html">Hair Oil</a>
+                  <a href="shop.html">Moisturizer</a>
+                </div>
+              </div>
+              <div class="mega-menu-featured">
+                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=120&h=120&fit=crop" alt="Featured" loading="lazy">
+                <div>
+                  <strong>The Rainfall Elite</strong>
+                  Shop our best-selling showerhead
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Journal</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <div class="nav-actions">
+            <button aria-label="Search" id="searchToggle"><i class="fas fa-search"></i></button>
+            <a href="wishlist.html" aria-label="Wishlist"><i class="far fa-heart"></i></a>
+            <button aria-label="Cart" id="cartToggle">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="cart-badge">0</span>
+            </button>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <button class="search-overlay-close" id="searchClose"><i class="fas fa-times"></i></button>
+    <div class="search-overlay-inner">
+      <div class="search-overlay-input-wrap">
+        <input type="text" class="search-overlay-input" placeholder="What are you looking for?" id="searchInput">
+      </div>
+      <div class="search-suggestions">
+        <span>Trending</span>
+        <a href="shop.html">Rain Showerheads</a>
+        <a href="shop.html">Shower Filters</a>
+        <a href="shop.html">Premium Skincare</a>
+        <a href="shop.html">Gift Sets</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="active"><small>01</small>Home</a>
+      <a href="shop.html"><small>02</small>Shop</a>
+      <a href="about.html"><small>03</small>About</a>
+      <a href="blog.html"><small>04</small>Journal</a>
+      <a href="contact.html"><small>05</small>Contact</a>
+    </div>
+    <div class="mobile-nav-bottom">
+      <a href="login.html">Sign In</a>
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+    </div>
+  </div>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-slider" id="heroSlider">
+      <div class="hero-slide active" data-index="0">
+        <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1600566753086-00f18f6b0352?w=1920&h=1080&fit=crop">
+          <source src="assets/videos/video1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-slide" data-index="1">
+        <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1920&h=1080&fit=crop">
+          <source src="assets/videos/video2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-slide" data-index="2">
+        <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1920&h=1080&fit=crop">
+          <source src="assets/videos/video3.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <!-- Ripple Container -->
+    <div class="ripple-container">
+      <div class="ripple" style="top: 20%; left: 30%;"></div>
+      <div class="ripple" style="top: 60%; left: 70%; animation-delay: 1.5s;"></div>
+      <div class="ripple" style="top: 40%; left: 50%; animation-delay: 3s;"></div>
+    </div>
+
+    <div class="hero-indicators" id="heroIndicators">
+      <button class="hero-indicator active" data-slide="0"><span class="fill"></span></button>
+      <button class="hero-indicator" data-slide="1"><span class="fill"></span></button>
+      <button class="hero-indicator" data-slide="2"><span class="fill"></span></button>
+    </div>
+
+    <div class="container-premium hero-content">
+      <div class="hero-label-wrap">
+        <span class="hero-gold-label">LUXURY WELLNESS</span>
+        <div class="hero-label-line"></div>
+      </div>
+      <h1 class="display-heading">Pure Water.<br>Pure Living.</h1>
+      <div class="hero-gold-divider"><span></span></div>
+      <p class="body-large">Innovative Shower Systems &amp; Luxury Personal Care</p>
+      <div class="hero-cta">
+        <a href="shop.html" class="hero-btn hero-btn-primary">Explore Collection <i class="fas fa-arrow-right"></i></a>
+        <a href="#brandStory" class="hero-btn hero-btn-glass" onclick="document.getElementById('brandStory').scrollIntoView({behavior:'smooth'});return false;">
+          <i class="fas fa-play"></i> Watch Story
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+      <div class="hero-scroll-icon"><i class="fas fa-tint"></i></div>
+      <span>Scroll to explore</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+  <!-- Cart Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <div class="floating-particles" id="floatingParticles"></div>
+  <div class="drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3>Shopping Bag <span id="cartCount">0</span></h3>
+      <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="drawer-body" id="drawerBody">
+      <div class="drawer-empty" id="drawerEmpty">
+        <i class="fas fa-shopping-bag"></i>
+        <p>Your bag is empty</p>
+        <p class="empty-sub">Add some products to get started</p>
+      </div>
+      <div class="drawer-items" id="drawerItems" style="display:none;"></div>
+    </div>
+    <div class="drawer-footer" id="drawerFooter" style="display:none;">
+      <div class="drawer-subtotal">
+        <span>Subtotal</span>
+        <span class="subtotal-amount" id="drawerTotal">$0</span>
+      </div>
+      <button class="btn-premium btn-primary drawer-checkout">Checkout <i class="fas fa-arrow-right"></i></button>
+      <p class="drawer-note">Free shipping on orders over $200</p>
+    </div>
+  </div>
+  <!-- ============================================
+       LUXURY CATEGORY SHOWCASE
+       ============================================ -->
+  <section class="lux-categories">
+    <div class="lux-bg-marble"></div>
+    <div class="lux-bg-glow lux-glow-1"></div>
+    <div class="lux-bg-glow lux-glow-2"></div>
+    <div class="lux-bg-glow lux-glow-3"></div>
+    <div class="lux-ray lux-ray-1"></div>
+    <div class="lux-ray lux-ray-2"></div>
+
+    <div class="container-premium lux-container">
+      <div class="lux-header reveal">
+        <span class="lux-label">CATEGORIES</span>
+        <h2 class="lux-heading">Exceptional<br>Craftsmanship</h2>
+        <p class="lux-desc">Curated bathroom essentials designed to elevate everyday rituals through innovation, sustainability and timeless elegance.</p>
+        <div class="lux-divider"><span></span><i class="fas fa-water"></i><span></span></div>
+      </div>
+
+      <div class="lux-cards">
+        <div class="lux-card lux-card-1" data-tilt>
+          <div class="lux-card-bg">
+            <img src="assets/images/shower1.png" alt="Luxury Shower Filters" loading="lazy">
+          </div>
+          <div class="lux-card-gradient"></div>
+          <div class="lux-card-gold-border"></div>
+          <div class="lux-card-particles">
+            <span style="top:15%;left:20%;animation-delay:0s"></span>
+            <span style="top:30%;right:25%;animation-delay:1.2s"></span>
+            <span style="top:50%;left:35%;animation-delay:2.4s"></span>
+            <span style="top:70%;right:40%;animation-delay:3.6s"></span>
+          </div>
+          <div class="lux-card-glass">
+            <div class="lux-card-glass-inner">
+              <span class="lux-card-tag">Premium</span>
+              <h3>Luxury Shower Filters</h3>
+              <p>Advanced multi-stage filtration for pure, soft water that transforms every shower into a spa ritual.</p>
+              <a href="shop.html" class="lux-card-btn">Explore Collection <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="lux-card lux-card-2" data-tilt>
+          <div class="lux-card-bg">
+            <img src="assets/images/cat-2.png" alt="Designer Rain Showerheads" loading="lazy">
+          </div>
+          <div class="lux-card-gradient"></div>
+          <div class="lux-card-gold-border"></div>
+          <div class="lux-card-particles">
+            <span style="top:20%;left:30%;animation-delay:0.6s"></span>
+            <span style="top:40%;right:15%;animation-delay:1.8s"></span>
+            <span style="top:60%;left:25%;animation-delay:3s"></span>
+            <span style="top:80%;right:35%;animation-delay:4.2s"></span>
+          </div>
+          <div class="lux-card-glass">
+            <div class="lux-card-glass-inner">
+              <span class="lux-card-tag">Designer</span>
+              <h3>Designer Rain Showerheads</h3>
+              <p>Architectural rainfall systems engineered to replicate nature's most soothing rhythms with precision.</p>
+              <a href="shop.html" class="lux-card-btn">Explore Collection <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="lux-card lux-card-3" data-tilt>
+          <div class="lux-card-bg">
+            <img src="assets/images/cat-3.png" alt="Premium Skincare" loading="lazy">
+          </div>
+          <div class="lux-card-gradient"></div>
+          <div class="lux-card-gold-border"></div>
+          <div class="lux-card-particles">
+            <span style="top:25%;left:15%;animation-delay:0.3s"></span>
+            <span style="top:45%;right:30%;animation-delay:1.5s"></span>
+            <span style="top:65%;left:40%;animation-delay:2.7s"></span>
+            <span style="top:85%;right:20%;animation-delay:3.9s"></span>
+          </div>
+          <div class="lux-card-glass">
+            <div class="lux-card-glass-inner">
+              <span class="lux-card-tag">Essential</span>
+              <h3>Premium Skincare Collection</h3>
+              <p>Clean, botanical formulations designed to nourish and restore, complementing your daily water ritual.</p>
+              <a href="shop.html" class="lux-card-btn">Explore Collection <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       BEST SELLERS — APPLE-STYLE SHOWCASE
+       ============================================ -->
+  <section class="bs-section">
+    <!-- Shower water fall effect -->
+    <div class="bs-waterfall">
+      <div class="bs-waterfall-stream"></div>
+      <div class="bs-waterfall-stream" style="left:15%;animation-delay:0.3s;width:2px"></div>
+      <div class="bs-waterfall-stream" style="left:30%;animation-delay:0.8s;width:1px"></div>
+      <div class="bs-waterfall-stream" style="left:50%;animation-delay:0.1s;width:3px"></div>
+      <div class="bs-waterfall-stream" style="left:65%;animation-delay:0.6s;width:1.5px"></div>
+      <div class="bs-waterfall-stream" style="left:80%;animation-delay:0.4s;width:2px"></div>
+      <div class="bs-waterfall-stream" style="left:92%;animation-delay:0.9s;width:1px"></div>
+      <div class="bs-waterfall-mist" style="left:10%"></div>
+      <div class="bs-waterfall-mist" style="left:40%;animation-delay:1s"></div>
+      <div class="bs-waterfall-mist" style="left:70%;animation-delay:0.5s"></div>
+      <div class="bs-waterfall-droplet" style="left:8%;animation-delay:0.2s;width:3px;height:5px"></div>
+      <div class="bs-waterfall-droplet" style="left:22%;animation-delay:1.5s;width:5px;height:7px"></div>
+      <div class="bs-waterfall-droplet" style="left:38%;animation-delay:0.7s;width:4px;height:5px"></div>
+      <div class="bs-waterfall-droplet" style="left:55%;animation-delay:2s;width:3px;height:6px"></div>
+      <div class="bs-waterfall-droplet" style="left:72%;animation-delay:1.2s;width:5px;height:5px"></div>
+      <div class="bs-waterfall-droplet" style="left:88%;animation-delay:0.4s;width:4px;height:7px"></div>
+    </div>
+    <div class="bs-bg-pattern"></div>
+    <div class="bs-bg-orbs">
+      <div class="bs-orb bs-orb-1"></div>
+      <div class="bs-orb bs-orb-2"></div>
+      <div class="bs-orb bs-orb-3"></div>
+    </div>
+
+    <div class="container-premium">
+      <div class="bs-header">
+        <div class="bs-header-left">
+          <span class="bs-label">BEST SELLERS</span>
+          <h2 class="bs-heading">Most Loved<br>Products</h2>
+        </div>
+        <div class="bs-header-right">
+          <p class="bs-sub">Curated essentials, chosen by thousands</p>
+          <a href="shop.html" class="bs-view-all">
+            <span>View All</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="bs-track" id="bsTrack">
+        <!-- Card 1 -->
+        <div class="bs-card" data-index="0">
+          <div class="bs-card-inner">
+            <div class="bs-card-image">
+              <div class="bs-card-glow"></div>
+              <div class="bs-card-reflect"></div>
+              <img src="assets/images/prd-1.png" alt="The Rainfall Elite" loading="lazy">
+              <div class="bs-card-actions">
+                <button class="bs-wishlist" aria-label="Wishlist"><i class="far fa-heart"></i></button>
+                <button class="bs-quickview" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="bs-compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+              </div>
+              <div class="bs-card-badge">Best Seller</div>
+              <div class="bs-card-ribbon">#1</div>
+              <div class="bs-quick-add">
+                <button class="bs-atc">Quick Add <i class="fas fa-shopping-bag"></i></button>
+              </div>
+              <div class="bs-color-variants">
+                <span style="background:#C0C0C0" data-color="Chrome" class="active"></span>
+                <span style="background:#1A1A1A" data-color="Matte Black"></span>
+                <span style="background:#D4AF64" data-color="Gold"></span>
+              </div>
+            </div>
+            <div class="bs-card-info">
+              <span class="bs-card-cat">Showerheads</span>
+              <h3>The Rainfall Elite</h3>
+              <div class="bs-card-price-row">
+                <span class="bs-card-price">$289</span>
+                <div class="bs-card-rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <span>(4.9)</span>
+                </div>
+              </div>
+              <span class="bs-card-eco"><i class="fas fa-leaf"></i> Sustainable Craft</span>
+            </div>
+          </div>
+          <div class="bs-card-light"></div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bs-card" data-index="1">
+          <div class="bs-card-inner">
+            <div class="bs-card-image">
+              <div class="bs-card-glow"></div>
+              <div class="bs-card-reflect"></div>
+              <img src="assets/images/prd-2.png" alt="Artisan Hand Shower" loading="lazy">
+              <div class="bs-card-actions">
+                <button class="bs-wishlist" aria-label="Wishlist"><i class="far fa-heart"></i></button>
+                <button class="bs-quickview" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="bs-compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+              </div>
+              <div class="bs-card-badge">Popular</div>
+              <div class="bs-quick-add">
+                <button class="bs-atc">Quick Add <i class="fas fa-shopping-bag"></i></button>
+              </div>
+              <div class="bs-color-variants">
+                <span style="background:#C0C0C0" data-color="Chrome" class="active"></span>
+                <span style="background:#D4AF64" data-color="Gold"></span>
+              </div>
+            </div>
+            <div class="bs-card-info">
+              <span class="bs-card-cat">Showerheads</span>
+              <h3>Artisan Hand Shower</h3>
+              <div class="bs-card-price-row">
+                <span class="bs-card-price">$189</span>
+                <div class="bs-card-rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <span>(4.8)</span>
+                </div>
+              </div>
+              <span class="bs-card-eco"><i class="fas fa-leaf"></i> Eco Brass</span>
+            </div>
+          </div>
+          <div class="bs-card-light"></div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bs-card" data-index="2">
+          <div class="bs-card-inner">
+            <div class="bs-card-image">
+              <div class="bs-card-glow"></div>
+              <div class="bs-card-reflect"></div>
+              <img src="assets/images/prd-3.png" alt="PureFlow Filter System" loading="lazy">
+              <div class="bs-card-actions">
+                <button class="bs-wishlist" aria-label="Wishlist"><i class="far fa-heart"></i></button>
+                <button class="bs-quickview" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="bs-compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+              </div>
+              <div class="bs-card-badge">New</div>
+              <div class="bs-quick-add">
+                <button class="bs-atc">Quick Add <i class="fas fa-shopping-bag"></i></button>
+              </div>
+              <div class="bs-color-variants">
+                <span style="background:#F5F5F5;border-color:#ddd" data-color="White" class="active"></span>
+                <span style="background:#1A1A1A" data-color="Matte Black"></span>
+              </div>
+            </div>
+            <div class="bs-card-info">
+              <span class="bs-card-cat">Shower Filters</span>
+              <h3>PureFlow Filter System</h3>
+              <div class="bs-card-price-row">
+                <span class="bs-card-price">$149</span>
+                <div class="bs-card-rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <span>(4.7)</span>
+                </div>
+              </div>
+              <span class="bs-card-eco"><i class="fas fa-leaf"></i> 50% Less Plastic</span>
+            </div>
+          </div>
+          <div class="bs-card-light"></div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bs-card" data-index="3">
+          <div class="bs-card-inner">
+            <div class="bs-card-image">
+              <div class="bs-card-glow"></div>
+              <div class="bs-card-reflect"></div>
+              <img src="assets/images/prd-4.png" alt="Silk Protein Shampoo" loading="lazy">
+              <div class="bs-card-actions">
+                <button class="bs-wishlist" aria-label="Wishlist"><i class="far fa-heart"></i></button>
+                <button class="bs-quickview" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="bs-compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+              </div>
+              <div class="bs-quick-add">
+                <button class="bs-atc">Quick Add <i class="fas fa-shopping-bag"></i></button>
+              </div>
+              <div class="bs-color-variants">
+                <span style="background:#F5E6D0" data-color="Rice Water" class="active"></span>
+                <span style="background:#D4E6E8" data-color="Aloe Vera"></span>
+              </div>
+            </div>
+            <div class="bs-card-info">
+              <span class="bs-card-cat">Haircare</span>
+              <h3>Silk Protein Shampoo</h3>
+              <div class="bs-card-price-row">
+                <span class="bs-card-price">$48</span>
+                <div class="bs-card-rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <span>(4.9)</span>
+                </div>
+              </div>
+              <span class="bs-card-eco"><i class="fas fa-leaf"></i> Vegan Formula</span>
+            </div>
+          </div>
+          <div class="bs-card-light"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SPLIT-SCREEN HERO — FEATURED COLLECTION
+       ============================================ -->
+  <section class="fc-section">
+    <div class="fc-bg-gradient"></div>
+
+    <div class="fc-container">
+      <!-- LEFT — Cinematic Visual -->
+      <div class="fc-visual" id="fcVisual">
+        <div class="fc-visual-bg"></div>
+        <div class="fc-visual-frame">
+          <div class="fc-frame-glow"></div>
+          <div class="fc-frame-inner">
+            <img src="assets/images/washbasin.jpg" alt="Luxury Rainfall Shower" loading="lazy">
+            <!-- Waterfall overlay streams -->
+            <div class="fc-waterfall">
+              <span style="left:20%;animation-delay:0s;width:2px"></span>
+              <span style="left:35%;animation-delay:0.6s;width:1.5px"></span>
+              <span style="left:50%;animation-delay:1.2s;width:3px"></span>
+              <span style="left:65%;animation-delay:0.3s;width:1px"></span>
+              <span style="left:80%;animation-delay:0.9s;width:2.5px"></span>
+            </div>
+            <!-- Drifting mist -->
+            <div class="fc-mist fc-mist-1"></div>
+            <div class="fc-mist fc-mist-2"></div>
+            <!-- Floating sparkle particles -->
+            <div class="fc-sparkles">
+              <span style="top:15%;left:10%;animation-delay:0s"></span>
+              <span style="top:30%;left:70%;animation-delay:1.5s"></span>
+              <span style="top:50%;left:20%;animation-delay:3s"></span>
+              <span style="top:70%;left:80%;animation-delay:0.8s"></span>
+              <span style="top:85%;left:35%;animation-delay:2.2s"></span>
+              <span style="top:10%;left:55%;animation-delay:4s"></span>
+              <span style="top:60%;left:60%;animation-delay:1.8s"></span>
+              <span style="top:40%;left:40%;animation-delay:3.5s"></span>
+            </div>
+            <!-- Water droplets -->
+            <div class="fc-droplets">
+              <span style="left:15%;animation-delay:0s"></span>
+              <span style="left:40%;animation-delay:2s"></span>
+              <span style="left:60%;animation-delay:4s"></span>
+              <span style="left:85%;animation-delay:1s"></span>
+            </div>
+          </div>
+          <!-- Water ripple extending from image -->
+          <div class="fc-ripple-extend"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT — Editorial Content -->
+      <div class="fc-content">
+        <div class="fc-content-inner">
+          <div class="fc-label-line"></div>
+          <span class="fc-label">FEATURED COLLECTION</span>
+
+          <h2 class="fc-heading">Experience Rain<br>Like Never Before</h2>
+
+          <div class="fc-gold-divider"><span></span></div>
+
+          <p class="fc-desc">Discover engineered rainfall showers designed to purify water, nourish skin, and transform your daily routine into a luxury wellness ritual.</p>
+
+          <div class="fc-cta">
+            <a href="product.html" class="fc-btn fc-btn-primary">
+              Shop Collection <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#brandStory" class="fc-btn fc-btn-glass" onclick="document.getElementById('brandStory').scrollIntoView({behavior:'smooth'});return false;">
+              <i class="fas fa-play"></i> Watch Experience
+            </a>
+          </div>
+
+          <!-- Scroll indicator -->
+          <div class="fc-scroll">
+            <div class="fc-scroll-drop"><i class="fas fa-tint"></i></div>
+            <span class="fc-scroll-text">Scroll</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PHILOSOPHY — LUXURY EDITORIAL
+       ============================================ -->
+  <section class="ph-section" id="brandStory">
+    <div class="ph-bg">
+      <div class="ph-bg-marble"></div>
+      <div class="ph-bg-mist ph-mist-1"></div>
+      <div class="ph-bg-mist ph-mist-2"></div>
+      <div class="ph-bg-ray ph-ray-1"></div>
+      <div class="ph-bg-ray ph-ray-2"></div>
+      <div class="ph-bg-plant"></div>
+    </div>
+
+    <div class="ph-container">
+      <div class="ph-panel">
+        <div class="ph-panel-bg"></div>
+        <div class="ph-panel-glow"></div>
+
+        <div class="ph-grid">
+          <!-- LEFT — Editorial Image -->
+          <div class="ph-visual" id="phVisual">
+            <div class="ph-visual-frame">
+              <div class="ph-visual-inner">
+                <img src="assets/images/Washbasin_premium_level_image_2K_202607190117.jpeg" alt="Luxury Bathroom" loading="lazy">
+                <div class="ph-water-flow">
+                  <span style="left:30%;animation-delay:0s"></span>
+                  <span style="left:50%;animation-delay:0.6s"></span>
+                  <span style="left:70%;animation-delay:1.2s"></span>
+                </div>
+                <div class="ph-steam">
+                  <span style="left:20%;top:40%;animation-delay:0s"></span>
+                  <span style="left:55%;top:30%;animation-delay:2s"></span>
+                  <span style="left:75%;top:50%;animation-delay:4s"></span>
+                </div>
+                <div class="ph-dust">
+                  <span style="left:15%;top:20%;animation-delay:0s"></span>
+                  <span style="left:35%;top:60%;animation-delay:1.5s"></span>
+                  <span style="left:65%;top:25%;animation-delay:3s"></span>
+                  <span style="left:85%;top:70%;animation-delay:0.8s"></span>
+                  <span style="left:45%;top:80%;animation-delay:2.5s"></span>
+                </div>
+              </div>
+              <div class="ph-visual-glow"></div>
+            </div>
+          </div>
+
+          <!-- RIGHT — Content -->
+          <div class="ph-content">
+            <div class="ph-content-inner">
+              <span class="ph-label">OUR PHILOSOPHY</span>
+              <div class="ph-gold-line"></div>
+
+              <h2 class="ph-heading">Design Meets<br>Wellness</h2>
+
+              <div class="ph-radial-glow"></div>
+
+              <p class="ph-desc">Our philosophy combines thoughtful design, sustainability, and engineering excellence. Every product is crafted to transform your daily routine into a moment of pure luxury.</p>
+
+              <a href="about.html" class="ph-btn">
+                <span>Discover Our Story</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+
+              <!-- Metric Cards -->
+              <div class="ph-metrics">
+                <div class="ph-metric">
+                  <div class="ph-metric-line"></div>
+                  <div class="ph-metric-number" data-count="15">0</div>
+                  <div class="ph-metric-label">Years of Innovation</div>
+                </div>
+                <div class="ph-metric">
+                  <div class="ph-metric-line"></div>
+                  <div class="ph-metric-number" data-count="50">0</div>
+                  <div class="ph-metric-label">Global Markets</div>
+                </div>
+                <div class="ph-metric">
+                  <div class="ph-metric-line"></div>
+                  <div class="ph-metric-number" data-count="200">0</div>
+                  <div class="ph-metric-label">Luxury Projects Delivered</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PRODUCT HIGHLIGHTS
+       ============================================ -->
+  <section class="section section-highlights">
+    <div class="container-premium">
+      <div class="text-center mb-5 reveal">
+        <span class="section-label">Why Bold</span>
+        <h2 class="heading-lg">Built Different</h2>
+      </div>
+      <div class="highlights-grid">
+        <div class="highlight-card reveal">
+          <div class="highlight-icon">
+            <svg viewBox="0 0 48 48"><path d="M24 4L4 44h40L24 4z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M24 18v12M24 34v2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Water Saving Tech</h3>
+          <p>Innovative aeration technology that reduces water usage while maintaining luxurious pressure.</p>
+        </div>
+        <div class="highlight-card reveal" style="transition-delay:0.1s">
+          <div class="highlight-icon">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M16 24l6 6 10-10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Premium Materials</h3>
+          <p>Sustainable brass, refined stainless steel, and hand-finished surfaces that endure for life.</p>
+        </div>
+        <div class="highlight-card reveal" style="transition-delay:0.2s">
+          <div class="highlight-icon">
+            <svg viewBox="0 0 48 48"><path d="M24 8v4M24 36v4M8 24h4M36 24h4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="24" cy="24" r="12" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          </div>
+          <h3>Eco Friendly</h3>
+          <p>100% recyclable packaging and carbon-neutral manufacturing across our entire product line.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       TESTIMONIALS
+       ============================================ -->
+  <section class="section section-dark">
+    <div class="container-premium">
+      <div class="text-center mb-5 reveal">
+        <span class="section-label" style="color: var(--champagne-gold);">Testimonials</span>
+        <h2 class="heading-lg" style="color: var(--white);">What Our Clients Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The rainfall showerhead transformed our bathroom into a personal spa. The water pressure is incredible even while saving water."</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Client" class="testimonial-avatar" loading="lazy">
+            <div>
+              <div class="testimonial-name">James Mitchell</div>
+              <div class="testimonial-role">Interior Architect</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal" style="transition-delay:0.1s">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The skincare line is exceptional. My skin has never felt so nourished. The packaging alone is a work of art."</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Client" class="testimonial-avatar" loading="lazy">
+            <div>
+              <div class="testimonial-name">Sofia Laurent</div>
+              <div class="testimonial-role">Wellness Editor</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal" style="transition-delay:0.2s">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Bold's commitment to sustainability without compromising luxury is exactly what modern design needs. Highly recommended."</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="Client" class="testimonial-avatar" loading="lazy">
+            <div>
+              <div class="testimonial-name">David Chen</div>
+              <div class="testimonial-role">Sustainable Designer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       INSTAGRAM GALLERY
+       ============================================ -->
+  <!-- <section class="section" style="padding-bottom: 0;">
+    <div class="container-premium">
+      <div class="d-flex justify-between align-center flex-wrap mb-5 reveal">
+        <div>
+          <span class="section-label">Follow Us</span>
+          <h2 class="heading-lg">@bold_international</h2>
+        </div>
+        <a href="#" class="btn-text">Follow on Instagram <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="instagram-grid">
+      <div class="instagram-item reveal">
+        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=600&fit=crop" alt="Rainfall Shower" loading="lazy">
+        <div class="instagram-overlay"><span><i class="fab fa-instagram"></i></span></div>
+      </div>
+      <div class="instagram-item reveal" style="transition-delay:0.05s">
+        <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=600&h=800&fit=crop" alt="Luxury Bath" loading="lazy">
+        <div class="instagram-overlay"><span><i class="fab fa-instagram"></i></span></div>
+      </div>
+      <div class="instagram-item reveal" style="transition-delay:0.1s">
+        <img src="https://images.unsplash.com/photo-1620626011761-e35e718c10ef?w=600&h=600&fit=crop" alt="Water Pipe Design" loading="lazy">
+        <div class="instagram-overlay"><span><i class="fab fa-instagram"></i></span></div>
+      </div>
+      <div class="instagram-item reveal" style="transition-delay:0.15s">
+        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=450&fit=crop" alt="Hand Shower" loading="lazy">
+        <div class="instagram-overlay"><span><i class="fab fa-instagram"></i></span></div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- ============================================
+       NEWSLETTER
+       ============================================ -->
+  <section class="section section-dark section-newsletter">
+    <div class="container-premium">
+      <div class="newsletter reveal">
+        <span class="section-label" style="color: var(--champagne-gold);">Stay Connected</span>
+        <h2 class="heading-lg" style="color: var(--white);">Stay Inspired</h2>
+        <p class="body-large">Receive design ideas, exclusive launches, and wellness inspiration.</p>
+        <form class="newsletter-form glass" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container-premium">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Nexus</div>
+          <p class="footer-desc">Innovative bathroom solutions and premium skincare essentials. Pure Water. Pure Living.</p>
+          <div class="footer-social mt-4">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <div class="footer-links">
+            <a href="shop.html">Shower Filters</a>
+            <a href="shop.html">Rain Showerheads</a>
+            <a href="shop.html">Hand Showers</a>
+            <a href="shop.html">Accessories</a>
+            <a href="shop.html">Skincare</a>
+          </div>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <div class="footer-links">
+            <a href="contact.html">Contact Us</a>
+            <a href="#">Installation Guide</a>
+            <a href="#">Warranty</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+          </div>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="blog.html">Journal</a>
+            <a href="#">Careers</a>
+            <a href="#">Sustainability</a>
+            <a href="#">Press</a>
+          </div>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Bold International. All rights reserved.</p>
+        <div class="footer-selectors">
+          <select>
+            <option>United States (USD $)</option>
+            <option>United Kingdom (GBP £)</option>
+            <option>European Union (EUR €)</option>
+            <option>Japan (JPY ¥)</option>
+          </select>
+          <select>
+            <option>English</option>
+            <option>French</option>
+            <option>German</option>
+            <option>Japanese</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+  </script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js">
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

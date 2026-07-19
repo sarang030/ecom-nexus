@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — Bold International</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-logo">Nexus</div>
+  </div>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-track">
+      <span>Free shipping on orders over <strong>$200</strong></span>
+      <span>Subscribe for <strong>10% off</strong> your first order</span>
+      <span>Complimentary samples with every purchase</span>
+      <span>Free shipping on orders over <strong>$200</strong></span>
+      <span>Subscribe for <strong>10% off</strong> your first order</span>
+      <span>Complimentary samples with every purchase</span>
+    </div>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <div class="container-premium">
+      <div class="navbar-inner">
+        <div class="nav-left">
+          <a href="index.html" class="navbar-brand">Bold<span>.</span></a>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="shop.html">Shop</a>
+            <div class="mega-menu">
+              <div class="mega-menu-grid">
+                <div class="mega-menu-col">
+                  <h4>Shower Products</h4>
+                  <a href="shop.html">Shower Filters <span class="count">(5)</span></a>
+                  <div class="mega-menu-sub">
+                    <a href="shop.html">Premium Filter Systems</a>
+                    <a href="shop.html">Replacement Cartridges</a>
+                    <a href="shop.html">Vitamin C Filters</a>
+                    <a href="shop.html">Hard Water Filters</a>
+                    <a href="shop.html">Filter Accessories</a>
+                  </div>
+                  <a href="shop.html" style="margin-top:12px;">Showerheads <span class="count">(5)</span></a>
+                  <div class="mega-menu-sub">
+                    <a href="shop.html">Rain Showerheads</a>
+                    <a href="shop.html">Hand Showers</a>
+                    <a href="shop.html">Dual Shower Systems</a>
+                    <a href="shop.html">Waterfall Showerheads</a>
+                    <a href="shop.html">Wall-Mounted Showerheads</a>
+                  </div>
+                </div>
+                <div class="mega-menu-col">
+                  <h4>Complementary Products</h4>
+                  <h4 style="margin-top:16px;font-size:0.6rem;">Skincare &amp; Haircare</h4>
+                  <a href="shop.html">Shampoo</a>
+                  <a href="shop.html">Conditioner</a>
+                  <a href="shop.html">Shower Gel</a>
+                  <a href="shop.html">Hair Oil</a>
+                  <a href="shop.html">Moisturizer</a>
+                </div>
+              </div>
+              <div class="mega-menu-featured">
+                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=120&h=120&fit=crop" alt="Featured" loading="lazy">
+                <div>
+                  <strong>The Rainfall Elite</strong>
+                  Shop our best-selling showerhead
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Journal</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-right"><div class="nav-actions">
+          <button aria-label="Search" id="searchToggle"><i class="fas fa-search"></i></button>
+          <a href="wishlist.html" aria-label="Wishlist"><i class="far fa-heart"></i></a>
+          <button aria-label="Cart" id="cartToggle">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge">0</span>
+          </button>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      
+        </div>
+      </div>
+    </div>
+</nav>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <button class="search-overlay-close" id="searchClose"><i class="fas fa-times"></i></button>
+    <div class="search-overlay-inner">
+      <div class="search-overlay-input-wrap">
+        <input type="text" class="search-overlay-input" placeholder="What are you looking for?" id="searchInput">
+      </div>
+      <div class="search-suggestions">
+        <span>Trending</span>
+        <a href="shop.html">Rain Showerheads</a>
+        <a href="shop.html">Shower Filters</a>
+        <a href="shop.html">Premium Skincare</a>
+        <a href="shop.html">Gift Sets</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <div class="floating-particles" id="floatingParticles"></div>
+  <div class="drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3>Shopping Bag <span id="cartCount">0</span></h3>
+      <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="drawer-body" id="drawerBody">
+      <div class="drawer-empty" id="drawerEmpty">
+        <i class="fas fa-shopping-bag"></i>
+        <p>Your bag is empty</p>
+        <p class="empty-sub">Add some products to get started</p>
+      </div>
+      <div class="drawer-items" id="drawerItems" style="display:none;"></div>
+    </div>
+    <div class="drawer-footer" id="drawerFooter" style="display:none;">
+      <div class="drawer-subtotal">
+        <span>Subtotal</span>
+        <span class="subtotal-amount" id="drawerTotal">$0</span>
+      </div>
+      <button class="btn-premium btn-primary drawer-checkout">Checkout <i class="fas fa-arrow-right"></i></button>
+      <p class="drawer-note">Free shipping on orders over $200</p>
+    </div>
+  </div>
+
+  <div class="mobile-overlay" id="mobileOverlay">
+    <div class="mobile-nav-links">
+      <a href="index.html"><small>01</small>Home</a>
+      <a href="shop.html"><small>02</small>Shop</a>
+      <a href="about.html"><small>03</small>About</a>
+      <a href="blog.html"><small>04</small>Journal</a>
+      <a href="contact.html"><small>05</small>Contact</a>
+    </div>
+    <div class="mobile-nav-bottom">
+      <a href="login.html">Sign In</a>
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+    </div>
+  </div>
+
+  <section class="auth-section">
+    <div class="auth-container reveal">
+      <div class="auth-header">
+        <a href="index.html" style="font-family: var(--font-serif); font-size: 1.5rem; display: block; margin-bottom: 32px;">Bold</a>
+        <h1 class="heading-md">Welcome Back</h1>
+        <p>Sign in to access your account</p>
+      </div>
+
+      <form class="auth-form" onsubmit="event.preventDefault(); showToast('Signed in successfully!'); window.location='index.html';">
+        <div class="form-group">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <div class="password-toggle">
+            <input type="password" id="login-password" placeholder="Enter your password" required>
+            <button type="button" class="toggle-btn" onclick="const pwd=document.getElementById('login-password'); pwd.type=pwd.type==='password'?'text':'password'; this.querySelector('i').classList.toggle('fa-eye'); this.querySelector('i').classList.toggle('fa-eye-slash');">
+              <i class="far fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <div class="d-flex justify-between align-center mb-4">
+          <label style="font-size:0.8rem;display:flex;align-items:center;gap:8px;cursor:pointer;">
+            <input type="checkbox" checked> Remember me
+          </label>
+          <a href="#" style="font-size:0.8rem;color:var(--text-light);text-decoration:underline;">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn-premium btn-primary">Sign In <i class="fas fa-arrow-right"></i></button>
+      </form>
+
+      <div class="auth-footer">
+        Don't have an account? <a href="register.html">Create one</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

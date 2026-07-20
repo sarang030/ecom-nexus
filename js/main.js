@@ -20,28 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* ==========================================
-     LENIS SMOOTH SCROLL
-     ========================================== */
-  let lenis;
-  try {
-    lenis = new Lenis({
-      duration: 1.8,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 0.8,
-      touchMultiplier: 1.5,
-    });
-
-    lenis.on('scroll', ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
-  } catch (e) {
-    console.warn('Lenis not available, using native scroll');
+  /* NATIVE SCROLL — fast, no lag */
+  if (typeof ScrollTrigger !== 'undefined') {
+    window.addEventListener('scroll', () => ScrollTrigger.update(), { passive: true });
   }
 
   /* ==========================================
@@ -105,128 +86,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================
-     CUSTOM CURSOR
+     CUSTOM CURSOR — GPU Optimized
      ========================================== */
   const cursorDot = document.getElementById('cursorDot');
   const cursorRing = document.getElementById('cursorRing');
-  let mouseX = 0, mouseY = 0;
-  let ringX = 0, ringY = 0;
+  let mx = 0, my = 0, rx = 0, ry = 0;
 
   if (cursorDot && cursorRing && window.innerWidth > 768) {
-    // Add ripple ring
-    const ripple = document.createElement('div');
-    ripple.className = 'ripple-ring';
-    cursorRing.appendChild(ripple);
+    document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; }, { passive: true });
 
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursorDot.style.left = mouseX + 'px';
-      cursorDot.style.top = mouseY + 'px';
-    });
-
-    function animateCursor() {
-      ringX += (mouseX - ringX) * 0.1;
-      ringY += (mouseY - ringY) * 0.1;
-      cursorRing.style.left = ringX + 'px';
-      cursorRing.style.top = ringY + 'px';
-      requestAnimationFrame(animateCursor);
+    function animCursor() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      cursorDot.style.transform = 'translate3d(' + mx + 'px,' + my + 'px,0) translate(-50%,-50%)';
+      cursorRing.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0) translate(-50%,-50%)';
+      requestAnimationFrame(animCursor);
     }
-    animateCursor();
+    animCursor();
 
-    // Water ripple click effect
-    document.addEventListener('click', (e) => {
-      for (let i = 0; i < 3; i++) {
-        const drop = document.createElement('div');
-        drop.style.cssText = `
-          position: fixed; pointer-events: none; z-index: 99997;
-          width: ${4 + Math.random() * 6}px; height: ${4 + Math.random() * 6}px;
-          background: radial-gradient(circle, rgba(212,175,100,0.6), transparent);
-          border-radius: 50%;
-          left: ${e.clientX + (Math.random() - 0.5) * 30}px;
-          top: ${e.clientY + (Math.random() - 0.5) * 30}px;
-          animation: dropFloat 1.2s ease-out forwards;
-        `;
-        document.body.appendChild(drop);
-        setTimeout(() => drop.remove(), 1200);
-      }
-    });
-
-    // Hover effects for interactive elements
-    const hoverTargets = document.querySelectorAll(
-      'a, button, .category-card, .product-card, .testimonial-card, .blog-card, .instagram-item, .highlight-card'
-    );
-    hoverTargets.forEach(el => {
+    document.querySelectorAll('a, button, .category-card, .product-card, .testimonial-card, .blog-card, .instagram-item, .highlight-card, .sp-card, .pl-related-card, .bj-card').forEach(el => {
       el.addEventListener('mouseenter', () => cursorRing.classList.add('hover'));
       el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
     });
-
-    // Water droplet trail on product cards
-    let dropletTimer = null;
-    document.querySelectorAll('.product-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        if (!dropletTimer) {
-          dropletTimer = setTimeout(() => {
-            const drop = document.createElement('div');
-            drop.className = 'cursor-droplet';
-            const size = 3 + Math.random() * 5;
-            drop.style.cssText = `
-              width: ${size}px; height: ${size * 1.4}px;
-              left: ${e.clientX + (Math.random() - 0.5) * 20}px;
-              top: ${e.clientY + (Math.random() - 0.5) * 10}px;
-            `;
-            document.body.appendChild(drop);
-            setTimeout(() => drop.remove(), 1200);
-            dropletTimer = null;
-          }, 80);
-        }
-      });
-    });
-
-    // Water pipe click effect — creates expanding ring with droplets
-    document.querySelectorAll('.product-card, .category-card').forEach(el => {
-      el.addEventListener('click', (e) => {
-        for (let i = 0; i < 5; i++) {
-          const drop = document.createElement('div');
-          const size = 3 + Math.random() * 8;
-          drop.style.cssText = `
-            position: fixed; pointer-events: none; z-index: 99997;
-            width: ${size}px; height: ${size * 1.3}px;
-            background: radial-gradient(circle, rgba(212,175,100,0.7), transparent);
-            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
-            left: ${e.clientX + (Math.random() - 0.5) * 60}px;
-            top: ${e.clientY + (Math.random() - 0.5) * 40}px;
-            animation: dropletFade 1.5s ease-out forwards;
-          `;
-          document.body.appendChild(drop);
-          setTimeout(() => drop.remove(), 1500);
-        }
-        // Expanding pipe ring
-        const pipeRing = document.createElement('div');
-        pipeRing.style.cssText = `
-          position: fixed; pointer-events: none; z-index: 99996;
-          width: 10px; height: 10px;
-          border: 2px solid rgba(212,175,100,0.4);
-          border-radius: 50%;
-          left: ${e.clientX - 5}px;
-          top: ${e.clientY - 5}px;
-          animation: pipeRingExpand 0.8s ease-out forwards;
-        `;
-        document.body.appendChild(pipeRing);
-        setTimeout(() => pipeRing.remove(), 800);
-      });
-    });
   }
-
-  // Pipe ring expand animation keyframe (injected dynamically)
-  const pipeKeyframes = document.createElement('style');
-  pipeKeyframes.textContent = `
-    @keyframes pipeRingExpand {
-      0% { width: 10px; height: 10px; opacity: 0.6; border-width: 3px; }
-      100% { width: 120px; height: 120px; opacity: 0; border-width: 1px; }
-    }
-  `;
-  document.head.appendChild(pipeKeyframes);
 
   /* ==========================================
      NAVBAR SCROLL EFFECT
@@ -245,11 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lastScroll = scrollY;
     };
 
-    if (lenis) {
-      lenis.on('scroll', updateNavbar);
-    } else {
-      window.addEventListener('scroll', updateNavbar);
-    }
+    window.addEventListener("scroll", updateNavbar, { passive: true })
     updateNavbar();
   }
 
@@ -266,12 +144,12 @@ document.addEventListener('DOMContentLoaded', () => {
       searchOverlay.classList.add('open');
       document.body.style.overflow = 'hidden';
       setTimeout(() => searchInput?.focus(), 400);
-      if (lenis) lenis.stop();
+      
     });
     const closeSearch = () => {
       searchOverlay.classList.remove('open');
       document.body.style.overflow = '';
-      if (lenis) lenis.start();
+      
     };
     searchClose.addEventListener('click', closeSearch);
     searchOverlay.addEventListener('click', (e) => {
@@ -304,72 +182,12 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.remove('active');
         mobileOverlay.classList.remove('open');
         document.body.style.overflow = '';
-        if (lenis) lenis.start();
+        
       });
     });
   }
 
-  /* ==========================================
-     WATER SPLASH SCROLL EFFECT
-     ========================================== */
-  (function initWaterSplash() {
-    const container = document.createElement('div');
-    container.className = 'water-splash-container';
-    document.body.appendChild(container);
-    let dropTimer = null;
-    let lastScrollY = 0;
-
-    function createDrop(x, y) {
-      const drop = document.createElement('div');
-      drop.className = 'water-drop';
-      const size = 3 + Math.random() * 6;
-      drop.style.width = size + 'px';
-      drop.style.height = size + 'px';
-      drop.style.left = x + 'px';
-      drop.style.top = y + 'px';
-      const duration = 1.5 + Math.random() * 2;
-      drop.style.animationDuration = duration + 's';
-      container.appendChild(drop);
-      setTimeout(() => drop.remove(), duration * 1000);
-    }
-
-    function createSplash(x, y) {
-      const splash = document.createElement('div');
-      splash.className = 'water-splash';
-      splash.style.left = (x - 150) + 'px';
-      splash.style.top = (y - 150) + 'px';
-      container.appendChild(splash);
-      setTimeout(() => splash.remove(), 2000);
-    }
-
-    function onScroll() {
-      const sy = window.scrollY || window.pageYOffset;
-      const delta = Math.abs(sy - lastScrollY);
-      if (delta > 5 && sy > 100) {
-        if (!dropTimer) {
-          dropTimer = setTimeout(() => {
-            const count = Math.min(Math.floor(delta / 3), 8);
-            for (let i = 0; i < count; i++) {
-              const x = Math.random() * window.innerWidth;
-              const y = window.innerHeight * 0.3 + Math.random() * window.innerHeight * 0.4;
-              setTimeout(() => createDrop(x, y), i * 80);
-            }
-            if (delta > 30) {
-              createSplash(
-                100 + Math.random() * (window.innerWidth - 200),
-                window.innerHeight * 0.5 + Math.random() * window.innerHeight * 0.3
-              );
-            }
-            dropTimer = null;
-          }, 100);
-        }
-      }
-      lastScrollY = sy;
-    }
-
-    if (lenis) lenis.on('scroll', onScroll);
-    else window.addEventListener('scroll', onScroll);
-  })();
+  /* WATER SPLASH — removed for performance */
 
   /* ==========================================
      KEYBOARD NAVIGATION
@@ -495,14 +313,14 @@ document.addEventListener('DOMContentLoaded', () => {
       cartDrawer.classList.add('open');
       drawerOverlay.classList.add('open');
       document.body.style.overflow = 'hidden';
-      if (lenis) lenis.stop();
+      
     };
 
     const closeDrawer = () => {
       cartDrawer.classList.remove('open');
       drawerOverlay.classList.remove('open');
       document.body.style.overflow = '';
-      if (lenis) lenis.start();
+      
     };
 
     cartToggle.addEventListener('click', openDrawer);
@@ -776,18 +594,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    if (lenis) {
-      lenis.on('scroll', toggleBackToTop);
-    } else {
-      window.addEventListener('scroll', toggleBackToTop);
-    }
+    window.addEventListener("scroll", toggleBackToTop, { passive: true })
 
     backToTop.addEventListener('click', () => {
-      if (lenis) {
-        lenis.scrollTo(0, { duration: 1.5 });
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      window.scrollTo({ top: 0, behavior: "smooth" })
     });
   }
 
@@ -947,14 +757,14 @@ document.addEventListener('DOMContentLoaded', () => {
     qvModal._product = product;
     qvModal.classList.add('open');
     document.body.style.overflow = 'hidden';
-    if (lenis) lenis.stop();
+    
   }
 
   function closeQuickView() {
     if (!qvModal) return;
     qvModal.classList.remove('open');
     document.body.style.overflow = '';
-    if (lenis) lenis.start();
+    
   }
 
   document.querySelectorAll('.sp-quickview').forEach(btn => {
@@ -1206,3 +1016,5 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('%c Bold International ', 'background: #1A1A1A; color: #D4AF64; font-size: 1.2rem; padding: 8px 16px; font-family: serif;');
   console.log('%c Pure Water. Pure Living. ', 'color: #8A8A8A; font-size: 0.85rem;');
 });
+
+

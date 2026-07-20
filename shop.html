@@ -69,7 +69,7 @@
                 </div>
               </div>
               <div class="mega-menu-featured">
-                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=120&h=120&fit=crop" alt="Featured" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=120&h=120&fit=crop" alt="Featured" loading="lazy">
                 <div>
                   <strong>The Rainfall Elite</strong>
                   Shop our best-selling showerhead
@@ -586,26 +586,32 @@
       <button class="modal-close" id="quickViewClose"><i class="fas fa-times"></i></button>
       <div class="qv-layout">
         <div class="qv-image">
+          <div class="qv-image-bg"></div>
           <img id="qvImg" src="" alt="">
         </div>
         <div class="qv-details">
-          <span class="qv-cat" id="qvCat"></span>
-          <h2 id="qvName"></h2>
-          <div class="qv-rating" id="qvRating"></div>
-          <div class="qv-price" id="qvPrice"></div>
-          <p class="qv-desc" id="qvDesc"></p>
-          <div class="qv-qty">
-            <label>Quantity</label>
-            <div class="product-quantity">
-              <button class="qty-btn">−</button>
-              <span class="qty-value">1</span>
-              <button class="qty-btn">+</button>
+          <div class="qv-details-inner">
+            <span class="qv-brand">BOLD</span>
+            <span class="qv-cat" id="qvCat"></span>
+            <h2 id="qvName"></h2>
+            <div class="qv-rating" id="qvRating"></div>
+            <div class="qv-price" id="qvPrice"></div>
+            <div class="qv-divider"><span></span></div>
+            <p class="qv-desc" id="qvDesc"></p>
+            <div class="qv-qty">
+              <label>Quantity</label>
+              <div class="qv-qty-selector">
+                <button class="qv-qty-btn">−</button>
+                <span class="qty-value">1</span>
+                <button class="qv-qty-btn">+</button>
+              </div>
             </div>
-          </div>
-          <div class="qv-actions">
-            <button class="btn-premium btn-primary" id="qvAddToCart">
-              Add to Cart <i class="fas fa-shopping-bag"></i>
-            </button>
+            <div class="qv-actions">
+              <button class="qv-atc-btn" id="qvAddToCart">
+                <span>Add to Cart</span> <i class="fas fa-shopping-bag"></i>
+              </button>
+            </div>
+            <div class="qv-footnote">Free shipping on orders over $200</div>
           </div>
         </div>
       </div>
@@ -698,4 +704,5 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+
 

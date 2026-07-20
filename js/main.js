@@ -636,9 +636,41 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // Blog journal animations
+    gsap.utils.toArray('.bj-card, .bj-featured-card, .bj-cat-card, .bj-trending-item, .bj-insta-item').forEach(el => {
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 88%',
+        onEnter: () => {
+          gsap.fromTo(el,
+            { y: 40, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' }
+          );
+        },
+        once: true
+      });
+    });
+
+    // Blog hero text reveal
+    const bjHero = document.querySelector('.bj-hero-content');
+    if (bjHero) {
+      gsap.fromTo(bjHero.querySelector('.bj-hero-label'),
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.3 }
+      );
+      gsap.fromTo(bjHero.querySelector('.bj-hero-title'),
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.5 }
+      );
+      gsap.fromTo(bjHero.querySelector('.bj-hero-desc'),
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.7 }
+      );
+    }
+
     // Stagger fade-in for product grids (avoids double-animating)
-    gsap.utils.toArray('.sp-grid, .bs-track, .lux-cards, .highlights-grid, .testimonials-grid, .ab-values-grid, .ab-team-grid').forEach(grid => {
-      const cards = grid.querySelectorAll('.sp-card, .bs-card, .lux-card, .highlight-card, .testimonial-card, .ab-value-card, .ab-team-card');
+    gsap.utils.toArray('.sp-grid, .bs-track, .lux-cards, .highlights-grid, .testimonials-grid, .ab-values-grid, .ab-team-grid, .bj-grid').forEach(grid => {
+      const cards = grid.querySelectorAll('.sp-card, .bs-card, .lux-card, .highlight-card, .testimonial-card, .ab-value-card, .ab-team-card, .bj-card');
       if (cards.length) {
         ScrollTrigger.create({
           trigger: grid,
@@ -961,6 +993,61 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && qvModal?.classList.contains('open')) closeQuickView();
   });
+
+  /* ==========================================
+     PRODUCT DATA
+     ========================================== */
+  const shopProductData = [
+    { name: 'Premium Filter System', price: 149, img: 'assets/images/prd-1.png', cat: 'Shower Filters', badge: 'Best Seller', desc: 'Advanced multi-stage filtration removes chlorine, heavy metals, and impurities for healthier skin and hair. Features a sleek brushed nickel finish with easy-install design.', material: 'Brass & polymer composite', tech: 'Multi-stage filtration reduces contaminants by 99%', spec: 'Fits standard 1/2" shower arms' },
+    { name: 'Replacement Cartridge', price: 39, img: 'assets/images/prd-2.png', cat: 'Shower Filters', badge: 'New', desc: 'High-capacity replacement cartridge compatible with all filter systems. Delivers 6 months of filtered water with easy twist-and-lock installation.', material: 'Activated carbon & KDF', tech: '6-month filtration capacity', spec: 'Universal fit' },
+    { name: 'Vitamin C Filter', price: 89, img: 'assets/images/prd-3.png', cat: 'Shower Filters', badge: '', desc: 'Infused with Vitamin C to neutralize chlorine and chloramines while promoting healthier, more radiant skin. Ideal for sensitive skin types.', material: 'Vitamin C-infused media', tech: 'Neutralizes chlorine & chloramines', spec: 'Fits standard 1/2" connections' },
+    { name: 'Hard Water Filter', price: 129, img: 'assets/images/shower1.png', cat: 'Shower Filters', badge: '', desc: 'Designed specifically for hard water areas. Reduces scale buildup, extends appliance life, and leaves skin feeling softer after every shower.', material: 'Ion exchange resin', tech: 'Reduces calcium & magnesium', spec: 'Treats up to 30,000 gallons' },
+    { name: 'Filter Accessory Kit', price: 59, img: 'assets/images/cat-2.png', cat: 'Shower Filters', badge: 'Popular', desc: 'Everything you need to maintain your filter system. Includes replacement washers, adapters, a cleaning brush, and installation tool.', material: 'Brass & silicone', tech: 'Complete maintenance set', spec: 'Universal compatibility' },
+    { name: 'The Rainfall Elite', price: 289, img: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=1000&fit=crop', cat: 'Rain Showerheads', badge: 'Best Seller', desc: 'Engineered to replicate the sensation of natural rainfall. Features 120 precision nozzles, innovative aeration technology, and a hand-finished surface.', material: 'Solid brass with chrome finish', tech: 'Aeration reduces water use by 30%', spec: '12" diameter, 1/2" connection' },
+    { name: 'Artisan Hand Shower', price: 189, img: 'assets/images/prd-4.png', cat: 'Showerheads', badge: '', desc: 'Ergonomic hand shower with premium braided hose and three spray modes. The flexible grip design makes rinsing effortless.', material: 'Brass & silicone nozzles', tech: '3 spray modes', spec: '59" braided hose' },
+    { name: 'Mist & Rain Duo', price: 349, img: 'assets/images/washbasin.jpg', cat: 'Showerheads', badge: '', desc: 'Innovative dual-mode showerhead combining gentle mist with invigorating rain. Features thermostatic control and LED temperature display.', material: 'Stainless steel & brass', tech: 'Dual-mode with thermostatic control', spec: '10" x 8" head' },
+    { name: 'Cascade Waterfall', price: 269, img: 'assets/images/Gold_hand_shower_overlooking_pool_202607190034.jpeg', cat: 'Showerheads', badge: '', desc: 'Wide 14-inch waterfall showerhead that delivers a gentle, even flow. The minimalist design complements any modern bathroom.', material: 'Brass with matte finish', tech: 'Wide laminar flow', spec: '14" width' },
+    { name: 'WallMount Pro', price: 219, img: 'assets/images/Washbasin_premium_level_image_2K_202607190117.jpeg', cat: 'Showerheads', badge: 'New', desc: 'Adjustable wall-mounted showerhead with 360° rotation and six spray patterns. Precision-engineered brass construction.', material: 'Solid brass', tech: '6 spray patterns, 360° rotation', spec: 'Universal mount' },
+    { name: 'Silk Protein Shampoo', price: 48, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&h=650&fit=crop', cat: 'Haircare', badge: '', desc: 'Nourishing shampoo infused with silk proteins and argan oil. Gently cleanses while restoring shine and strength to damaged hair.', material: 'Natural botanicals', tech: 'Silk protein complex', spec: '8.4 fl oz' },
+    { name: 'Silk Protein Conditioner', price: 44, img: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&h=650&fit=crop', cat: 'Haircare', badge: '', desc: 'Rich conditioner with silk amino acids and shea butter. Detangles, hydrates, and leaves hair silky smooth without weighing it down.', material: 'Shea butter & silk amino acids', tech: 'Deep hydration formula', spec: '8.4 fl oz' },
+    { name: 'Argan Hair Elixir', price: 58, img: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=500&h=650&fit=crop', cat: 'Haircare', badge: '', desc: 'Lightweight organic argan oil treatment that tames frizz, adds shine, and protects against heat damage. Suitable for all hair types.', material: 'Organic argan oil', tech: 'Heat protection up to 450°F', spec: '3.4 fl oz' },
+    { name: 'Mineral Shower Gel', price: 42, img: 'https://images.unsplash.com/photo-1570194065650-d99fb4b8ccb0?w=500&h=650&fit=crop', cat: 'Skincare', badge: 'Popular', desc: 'Luxurious shower gel enriched with Dead Sea minerals and aloe vera. Gently cleanses while replenishing essential nutrients for radiant skin.', material: 'Dead Sea minerals & aloe', tech: 'pH-balanced formula', spec: '16.9 fl oz' },
+    { name: 'HydraGlow Moisturizer', price: 72, img: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=500&h=650&fit=crop', cat: 'Skincare', badge: 'New', desc: 'Lightweight fast-absorbing moisturizer with hyaluronic acid and vitamin B5. Provides 24-hour hydration without clogging pores.', material: 'Hyaluronic acid & B5', tech: '24-hour hydration', spec: '1.7 fl oz' },
+  ];
+
+  /* ==========================================
+     PRODUCT CARD CLICK → PRODUCT PAGE
+     ========================================== */
+  document.addEventListener('click', function (e) {
+    const card = e.target.closest('.sp-card');
+    if (!card) return;
+    if (e.target.closest('.sp-quickview') || e.target.closest('.sp-atc') || e.target.closest('.sp-wishlist')) return;
+    e.preventDefault();
+    const name = card.querySelector('h3')?.textContent?.trim() || 'Product';
+    localStorage.setItem('selectedProduct', name);
+    window.location.href = 'product.html';
+  });
+
+  /* ==========================================
+     DYNAMIC PRODUCT PAGE
+     ========================================== */
+  if (window.location.pathname.includes('product.html')) {
+    const prodName = localStorage.getItem('selectedProduct') || 'The Rainfall Elite';
+    const prod = shopProductData.find(p => p.name === prodName);
+    if (prod) {
+      document.querySelector('.pl-category').textContent = prod.cat;
+      document.querySelector('.pl-title').textContent = prod.name;
+      document.querySelector('.pl-price').textContent = `$${prod.price}`;
+      document.querySelector('.pl-desc').textContent = prod.desc;
+      const mainImg = document.getElementById('plMainImg');
+      if (mainImg) { mainImg.src = prod.img; mainImg.alt = prod.name; }
+      document.querySelector('.pl-breadcrumb span').textContent = prod.cat;
+
+      document.getElementById('plSpec1').textContent = prod.material;
+      document.getElementById('plSpec2').textContent = prod.tech;
+      document.getElementById('plSpec3').textContent = prod.spec;
+    }
+  }
 
   /* ==========================================
      ADD TO CART
